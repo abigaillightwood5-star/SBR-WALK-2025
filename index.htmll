@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBR WALK 2025 - Replay</title>
+    <style>
+        :root {
+            --blue-bg: #6b8fa6; /* The dusty blue from your images */
+            --dark-blue: #3d5666;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif; /* Matching the elegant serif style in your images */
+            background-color: var(--blue-bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* --- SHARED LAYOUT --- */
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 8%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .content-left {
+            max-width: 500px;
+            z-index: 2;
+        }
+
+        .image-right img {
+            max-width: 450px;
+            height: auto;
+        }
+
+        h2 { font-style: italic; font-weight: normal; font-size: 2.2rem; margin-bottom: 30px; }
+        p { line-height: 1.6; font-size: 1.1rem; opacity: 0.9; font-family: sans-serif; }
+
+        /* --- HEADER & MENU --- */
+        .hamburger {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            border: 1px solid var(--white);
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* --- SECTION SPECIFICS --- */
+        #home { 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://img.freepik.com/free-photo/wood-material-background-wallpaper-texture-concept_53876-42925.jpg?w=740');
+            background-size: cover;
+        }
+
+        .reg-link { color: var(--white); text-decoration: underline; font-weight: bold; margin-top: 20px; display: block; }
+
+        /* --- BOTTOM NAV PILL (Matches images) --- */
+        nav {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .logo-small {
+            background: var(--glass);
+            border: 1px solid var(--white);
+            padding: 10px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-pill {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--white);
+            padding: 10px 30px;
+            border-radius: 50px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-pill a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            text-transform: uppercase;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .nav-pill span { color: gold; }
+    </style>
+</head>
+<body>
+
+    <div class="hamburger">||</div>
+
+    <section id="home">
+        <div class="content-left">
+            <h1 style="font-size: 4rem; font-style: italic; margin: 0;">SBR WALK</h1>
+            <p>SBR Walk's 9th iteration! ☀️<br>"REPLAY: Trip Down Memory Lane" 🎞️</p>
+            <a href="#registration" style="background: var(--purple); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-block; background: #3d2b56;">⚡ REGISTRATION</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="content-left">
+            <h2>Yearly Event of Sekolah Bogor Raya</h2>
+            <p>
+                SBRWALK is an annual event organized by Sekolah Bogor Raya to promote community involvement and fundraising. 
+                The website has been created since 2016, and had been including activities such as yoga, running, and even bands. 
+                The last year's event...
+            </p>
+        </div>
+        <div class="image-right">
+            <img src="YOUR_LOGO_HERE.png" alt="SBR Walk Logo Replay">
+        </div>
+    </section>
+
+    <section id="registration" style="background-color: #5d7c91;">
+        <div class="content-left">
+            <h2>Registration! Get your slots!!</h2>
+            <p>
+                The last year's event, SBR WALK 2025: "Replay" with the tagline: Trip Down Memory Lane. 
+                Last year's event was about reminiscent of the past because it coincided with the SBR's 30th anniversary.
+            </p>
+            <p>To register the event, go to the link below. The deadline of the registration is 18th July 2025:</p>
+            <a href="#" class="reg-link">Registration Link: ——————</a>
+        </div>
+        <div class="image-right">
+            <img src="YOUR_LOGO_HERE.png" alt="SBR Walk Logo Replay">
+        </div>
+    </section>
+
+    <section id="bookcall">
+        <div class="content-left">
+            <h2>Yearly Event of Sekolah Bogor Raya</h2>
+            <p>If you have any confusions or questions...</p>
+            <h3 style="font-family: sans-serif; margin-top: 20px;">Call: +62-7439-8394-711</h3>
+        </div>
+        <div class="image-right">
+            <img src="YOUR_LOGO_HERE.png" alt="SBR Walk Logo Replay">
+        </div>
+    </section>
+
+    <nav>
+        <div class="logo-small">⚡</div>
+        <div class="nav-pill">
+            <a href="#home">Home</a> <span>➔</span>
+            <a href="#about">About</a> <span>➔</span>
+            <a href="#registration">Registration</a> <span>➔</span>
+            <a href="#bookcall">Book Call</a>
+        </div>
+    </nav>
+
+</body>
+</html>
