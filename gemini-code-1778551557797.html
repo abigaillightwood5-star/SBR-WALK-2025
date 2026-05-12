@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBR WALK 2025 - Replay All Access</title>
+    <style>
+        :root {
+            --bg-blue: #6d92ac;
+            --dark-blue: #2c3e50;
+            --accent-gold: #f39c12;
+            --text-white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: background 0.6s ease;
+        }
+
+        /* NEW: Your specific wood background image */
+        .wood-theme {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://img.pikbest.com/wp/202408/wood-table-texture-aged-wooden-background-with-textured-brown_9943636.jpg!sw800');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blue-theme {
+            background-color: var(--bg-blue) !important;
+            background-image: none !important;
+        }
+
+        header { padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+        
+        .title-italic { 
+            font-family: 'Georgia', serif; 
+            font-size: 1.5rem; 
+            font-style: italic; 
+            border: 1px solid rgba(255,255,255,0.4); 
+            padding: 8px 25px; 
+            border-radius: 30px; 
+        }
+        
+        #welcome-msg { font-weight: bold; color: var(--accent-gold); letter-spacing: 1px; }
+
+        .page-content {
+            display: none; 
+            padding: 0 10%;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .active { display: flex; animation: fadeIn 0.6s ease forwards; }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .text-side { max-width: 550px; line-height: 1.6; }
+        .hero-title { font-size: 4.5rem; margin: 0; font-weight: bold; }
+
+        button {
+            background: #1a1a2e;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+        button:hover { transform: scale(1.1); background: #2c3e50; }
+
+        /* The Logo styling for sub-pages */
+        .logo-side img { 
+            width: 420px; 
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        /* Modal for Registration */
+        #regModal {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a2e;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-gold);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        /* Footer Navigation */
+        footer { padding: 30px; display: flex; justify-content: center; }
+        .nav-container { 
+            background: rgba(0,0,0,0.2); 
+            padding: 10px 30px; border-radius: 30px; 
+            display: flex; gap: 20px; backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            align-items: center;
+        }
+        .nav-container a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: bold; cursor: pointer; opacity: 0.6; }
+        .current-tab { opacity: 1 !important; color: var(--accent-gold) !important; border-bottom: 2px solid var(--accent-gold); }
+        .arrow { color: var(--accent-gold); font-size: 12px; }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: absolute; width: 5px; height: 5px; background: gold;
+            border-radius: 50%; pointer-events: none; animation: pop 0.7s linear forwards;
+            z-index: 999;
+        }
+        @keyframes pop { to { transform: scale(3); opacity: 0; } }
+    </style>
+</head>
+<body id="main-body" class="wood-theme" onmousemove="createSparkle(event)">
+
+    <header>
+        <div class="title-italic">Yearly Event of Sekolah Bogor Raya</div>
+        <div id="welcome-msg"></div>
+        <div style="font-size: 24px; cursor: pointer;">&#9776;</div>
+    </header>
+
+    <main id="home" class="page-content active">
+        <div class="text-side">
+            <h1 class="hero-title">SBR WALK</h1>
+            <p style="font-size: 1.2rem; margin-top: 10px;">SBR Walk's 9TH iteration! ☀️<br>
+            "REPLAY: Trip Down Memory Lane" 🎞️<br>
+            JOIN SBRWALK 2025 FOR THE THRILL AND SWEAT!!! 👟</p>
+            <button onclick="switchPage('registration')">REGISTRATION</button>
+        </div>
+    </main>
+
+    <main id="about" class="page-content">
+        <div class="text-side">
+            <h2>About SBRWALK</h2>
+            <p>SBRWALK is an annual event organized by Sekolah Bogor Raya to promote community involvement and fundraising. The website has been created since 2016, and had been including activities such as yoga, running, and even bands.</p>
+        </div>
+        <div class="logo-side">
+            <img src="https://vui.unsplash.com/resize?height=256&quality=60&type=auto&url=https%3A%2F%2Fsearched-images.s3.us-west-2.amazonaws.com%2F0d424876-1792-40f0-8fa5-cd90752eb1d8%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQ4GRIA4QZEVBVGJE%252F20260512%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20260512T015439Z%26X-Amz-Expires%3D86400%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Signature%3D20330b9c5c3b95f62aa951ea946b1a2b4733ad7e284a8f60ceb8319425b923dd&sign=6VrdM0g5nMKYnow-QAKxW7YCe-Cicp2mXLW88Ny8wyw" alt="Event Logo">
+        </div>
+    </main>
+
+    <main id="registration" class="page-content">
+        <div class="text-side">
+            <h2>Registration! Get your slots!!</h2>
+            <p>The last year's event, SBR WALK 2025: "Replay" with the tagline: Trip Down Memory Lane coincided with SBR's 30th anniversary.</p>
+            <button onclick="toggleModal()">⚡ OPEN REGISTRATION</button>
+            <p id="reg-status" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+        <div class="logo-side">
+            <img src="https://vui.unsplash.com/resize?height=256&quality=60&type=auto&url=https%3A%2F%2Fsearched-images.s3.us-west-2.amazonaws.com%2F0d424876-1792-40f0-8fa5-cd90752eb1d8%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQ4GRIA4QZEVBVGJE%252F20260512%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20260512T015439Z%26X-Amz-Expires%3D86400%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Signature%3D20330b9c5c3b95f62aa951ea946b1a2b4733ad7e284a8f60ceb8319425b923dd&sign=6VrdM0g5nMKYnow-QAKxW7YCe-Cicp2mXLW88Ny8wyw" alt="Event Logo">
+        </div>
+    </main>
+
+    <main id="book-call" class="page-content">
+        <div class="text-side">
+            <h3>If you have any confusions...</h3>
+            <h1 style="color: var(--accent-gold);">Call: +62-7439-8394-711</h1>
+            <button onclick="alert('Our agent will call you shortly!')">Request Call</button>
+        </div>
+        <div class="logo-side">
+            <img src="https://vui.unsplash.com/resize?height=256&quality=60&type=auto&url=https%3A%2F%2Fsearched-images.s3.us-west-2.amazonaws.com%2F0d424876-1792-40f0-8fa5-cd90752eb1d8%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQ4GRIA4QZEVBVGJE%252F20260512%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20260512T015439Z%26X-Amz-Expires%3D86400%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Signature%3D20330b9c5c3b95f62aa951ea946b1a2b4733ad7e284a8f60ceb8319425b923dd&sign=6VrdM0g5nMKYnow-QAKxW7YCe-Cicp2mXLW88Ny8wyw" alt="Event Logo">
+        </div>
+    </main>
+
+    <div id="regModal">
+        <h3 style="color: white;">SBR WALK 2025</h3>
+        <input type="text" id="userName" placeholder="Type your name here..." style="padding:12px; border-radius:10px; border:none; margin-bottom:15px; width: 250px;">
+        <br>
+        <button onclick="handleRegistration()">Confirm Slot</button>
+        <p onclick="toggleModal()" style="cursor:pointer; font-size: 0.8rem; margin-top:15px; color: #ff8a80;">CLOSE</p>
+    </div>
+
+    <footer>
+        <div class="nav-container">
+            <a id="link-hom" onclick="switchPage('home')" class="current-tab">HOME</a>
+            <span class="arrow">➔</span>
+            <a id="link-abo" onclick="switchPage('about')">ABOUT</a>
+            <span class="arrow">➔</span>
+            <a id="link-reg" onclick="switchPage('registration')">REGISTRATION</a>
+            <span class="arrow">➔</span>
+            <a id="link-boo" onclick="switchPage('book-call')">BOOK CALL</a>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Navigation and Background Logic
+        function switchPage(id) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-container a').forEach(a => a.classList.remove('current-tab'));
+            
+            document.getElementById(id).classList.add('active');
+            document.getElementById('link-' + id.substring(0,3)).classList.add('current-tab');
+            
+            const body = document.getElementById('main-body');
+            if (id === 'home') {
+                body.classList.add('wood-theme');
+                body.classList.remove('blue-theme');
+            } else {
+                body.classList.add('blue-theme');
+                body.classList.remove('wood-theme');
+            }
+        }
+
+        // 2. Initial Setup
+        window.onload = function() {
+            let name = localStorage.getItem('sbr_walker');
+            if (!name) {
+                name = prompt("Welcome! Enter your name for the SBR WALK portal:");
+                if(name) localStorage.setItem('sbr_walker', name);
+            }
+            document.getElementById('welcome-msg').innerText = name ? "HELLO, " + name.toUpperCase() : "WELCOME!";
+        };
+
+        // 3. Modal Logic
+        function toggleModal() {
+            const modal = document.getElementById('regModal');
+            modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function handleRegistration() {
+            const name = document.getElementById('userName').value;
+            if(name) {
+                alert("Success! Slot confirmed for " + name);
+                toggleModal();
+                document.getElementById('reg-status').innerText = "✅ Confirmed: " + name;
+            }
+        }
+
+        // 4. Sparkle Visuals
+        function createSparkle(e) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 700);
+        }
+    </script>
+</body>
+</html>
